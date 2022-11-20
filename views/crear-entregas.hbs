@@ -1,0 +1,200 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star⭐Routing - Crear entregas</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        {{> menu}}
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                {{> topbar}}
+                {{!-- End of topbar --}}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Clientes</h1>
+                        <a href="list-entregas" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                            <i class="fas fa-window-close fa-sm text-white-50"></i> Cancelar</a>
+                    </div>
+                    {{!-- End of Page Heading --}}
+
+                    <!-- Content Row -->
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold" style="color: indigo;">Formulario de Entregas</h6>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <form>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="identrega" class="form-label">Id de entrega *</label>
+                                            <input type="text" class="form-control" id="identrega"
+                                            value="1" disabled>
+                                            <p id="r0" style="color: red;"></p>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label" for="firmadestinatario">Firma de destinatario *</label>
+                                            <input type="text" class="form-control" id="firmadestinatario">
+                                            <p id="r1" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="descripcion" class="form-label">Descripción *</label>
+                                            <textarea class="form-control" id="descripcion" rows="2"></textarea>
+                                            <p id="r2" style="color: red"></p>
+                                        </div>
+                                        <div class="col">
+                                            <label for="fecha" class="form-label">Fecha *</label>
+                                            <input type="date" class="form-control" id="fecha">
+                                            <p id="r3" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label class="form-label" for="idruta">Id de la ruta *</label>
+                                            <select class="form-control" id="idruta">
+                                                <option value="0" hidden selected>Seleccione una opción</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                            <p id="r4" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                        <a type="submit" onclick=val() style="background-color: indigo; color: white"
+                                            class="btn" id="btnGuardar">Guardar</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- End of DataTales Example --}}
+
+                </div>
+            </div>
+            {{!-- End of Main Content --}}
+
+            {{> footer}}
+
+        </div>
+        {{!-- End of Content Wrapper --}}
+
+    </div>
+    {{!-- End of Page Wrapper --}}
+
+    <!-- Scroll to Top Button-->
+    {{> arriba}}
+
+    <!-- Logout Modal-->
+    {{> logout}}
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    </div>
+
+</body>
+
+<script>
+    function val() {
+
+        let identrega = document.getElementById('identrega').value;
+        let firmadestinatario = document.getElementById('firmadestinatario').value;
+        let descripcion = document.getElementById('descripcion').value;
+        let fecha = document.getElementById('fecha').value;
+        let idruta = document.getElementById('idruta').value;
+
+
+        let regex = /^[a-zA-Z0-9\s]*$/;
+
+        if (firmadestinatario != "") {
+            if (!firmadestinatario.match(/['\s]/)) {
+                if (!regex.test(firmadestinatario)) {
+                    document.getElementById('r1').innerHTML = "No se permiten caracteres especiales";
+                } else {
+                    document.getElementById('r1').innerHTML = ''
+                }
+            } else {
+                document.getElementById('r1').innerHTML = 'La firma no debe contener espacios';
+            }
+        } else {
+            document.getElementById('r1').innerHTML = "Complete este campo";
+        }
+
+        if (descripcion == "") {
+            document.getElementById("r2").innerHTML = "Ingrese una descripción";
+        } else {
+            if (!regex.test(descripcion)) {
+                document.getElementById("r2").innerHTML = "No se permiten caracteres especiales";
+            } else {
+                document.getElementById("r2").innerHTML = "";
+            }
+        }
+
+        //validacion de fecha que no sea vacia, que no sea menor a la fecha actual
+        if (fecha == "") {
+            document.getElementById("r3").innerHTML = "Ingrese una fecha";
+        } else {
+            var hoy = new Date();
+            var fechaIngresada = new Date(fecha);
+            if (fechaIngresada < hoy) {
+                document.getElementById("r3").innerHTML = "La fecha no puede ser menor a la actual";
+            } else {
+                document.getElementById("r3").innerHTML = "";
+            }
+        }
+
+        if (idruta <= 0) {
+            document.getElementById('r4').innerHTML = 'Seleccione una opción'
+        } else {
+            document.getElementById('r4').innerHTML = ''
+        }
+
+        
+    }
+</script>
+
+</html>

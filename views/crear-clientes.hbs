@@ -1,0 +1,276 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star⭐Routing - Crear clientes</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        {{> menu}}
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                {{> topbar}}
+                {{!-- End of topbar --}}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Clientes</h1>
+                        <a href="list-clientes" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                            <i class="fas fa-window-close fa-sm text-white-50"></i> Cancelar</a>
+                    </div>
+                    {{!-- End of Page Heading --}}
+
+                    <!-- Content Row -->
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold" style="color: indigo;">Formulario de Clientes</h6>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <form>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="idcliente" class="form-label">CC o NIT *</label>
+                                            <input type="text" class="form-control" id="idcliente">
+                                            <p id="r0" style="color: red;"></p>
+                                        </div>
+                                        <div class="col">
+                                            <label class="form-label" for="tipopersona">Tipo de persona *</label>
+                                            <select class="form-control" id="tipopersona">
+                                                <option value="0" hidden selected>Seleccione una opción</option>
+                                                <option value="1">Natural</option>
+                                                <option value="2">Jurídica</option>
+                                            </select>
+                                            <p id="r1" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="nombrecliente" class="form-label">Primer nombre *</label>
+                                            <input type="text" class="form-control" id="nombrecliente">
+                                            <p id="nombre0" style="color: red;"></p>
+                                        </div>
+                                        <div class="col">
+                                            <label for="apellidocliente" class="form-label">Primer apellido *</label>
+                                            <input type="text" class="form-control" id="apellidocliente">
+                                            <p id="nombre1" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="telefono1" class="form-label">Telefono N°1 *</label>
+                                            <input type="text" class="form-control" id="telefono1">
+                                            <p id="r3" style="color: red;"></p>
+                                        </div>
+                                        <div class="col">
+                                            <label for="telefono2" class="form-label">Telefono N°2</label>
+                                            <input type="text" class="form-control" id="telefono2">
+                                            <p id="r4" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="emailcliente" class="form-label">Correo *</label>
+                                            <input type="email" class="form-control" id="emailcliente">
+                                            <p id="r5" style="color: red;"></p>
+                                        </div>
+                                        <div class="col">
+                                            <label for="documentoempleado" class="form-label">Documento del
+                                                empleado *</label>
+                                            <input type="text" class="form-control" id="documentoempleado"
+                                                value="100000000" disabled>
+                                            <p id="r6" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                        <a type="submit" onclick=val() style="background-color: indigo; color: white"
+                                            class="btn" id="btnGuardar">Guardar</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- End of DataTales Example --}}
+
+                </div>
+            </div>
+            {{!-- End of Main Content --}}
+
+            {{> footer}}
+
+        </div>
+        {{!-- End of Content Wrapper --}}
+
+    </div>
+    {{!-- End of Page Wrapper --}}
+
+    <!-- Scroll to Top Button-->
+    {{> arriba}}
+
+    <!-- Logout Modal-->
+    {{> logout}}
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    </div>
+
+</body>
+
+<script>
+    function val() {
+
+        let idcliente = document.getElementById('idcliente').value;
+        let tipopersona = document.getElementById('tipopersona').value;
+        let nombrecliente = document.getElementById('nombrecliente').value;
+        let apellidocliente = document.getElementById('apellidocliente').value;
+        let telefono1 = document.getElementById('telefono1').value;
+        let telefono2 = document.getElementById('telefono2').value;
+        let emailcliente = document.getElementById('emailcliente').value;
+        let documentoempleado = document.getElementById('documentoempleado').value;
+
+        let nombres = [nombrecliente, apellidocliente];
+
+        let regex = /^[a-zA-Z0-9\s]*$/;
+
+        if (idcliente != "") {
+            if (!idcliente.match(/['\s]/)) {
+                if (isNaN(idcliente) == true) {
+                    document.getElementById('r0').innerHTML = 'El documento debe ser un número'
+                } else {
+                    if (!regex.test(idcliente)) {
+                        document.getElementById('r0').innerHTML = "No se permiten caracteres especiales";
+                    } else {
+                        document.getElementById('r0').innerHTML = ''
+                    }
+                }
+            } else {
+                document.getElementById('r0').innerHTML = 'El documento no debe contener espacios';
+            }
+        } else {
+            document.getElementById('r0').innerHTML = "Complete este campo";
+        }
+
+        if (tipopersona <= 0) {
+            document.getElementById('r1').innerHTML = 'Seleccione una opción'
+        } else {
+            document.getElementById('r1').innerHTML = ''
+        }
+
+        for (i in nombres) {
+            if (nombres[i] != "") {
+                if (!nombres[i].match(/['\s]/)) {
+                    if (!regex.test(nombres[i])) {
+                        document.getElementById('nombre' + [i]).innerHTML = "No se permiten caracteres especiales";
+                    } else {
+                        document.getElementById('nombre' + [i]).innerHTML = '';
+                    }
+                }
+                else {
+                    document.getElementById('nombre' + [i]).innerHTML = 'El nombre no debe contener espacios';
+                }
+            } else {
+                document.getElementById('nombre' + [i]).innerHTML = "Complete este campo";
+            }
+        }
+
+        if (telefono1 != "") {
+            if (!telefono1.match(/['\s]/)) {
+                if (isNaN(telefono1)) {
+                    document.getElementById('r3').innerHTML = 'El telefono solo debe tener numeros'
+                } else {
+                    if (!regex.test(telefono1)) {
+                        document.getElementById('r3').innerHTML = "No se permiten caracteres especiales";
+                    } else {
+                        if (telefono1.length < 10 || telefono1.length > 10) {
+                            document.getElementById('r3').innerHTML = 'El telefono debe tener 10 digitos'
+                        } else {
+                            document.getElementById('r3').innerHTML = ''
+                        }
+                    }
+                }
+            } else {
+                document.getElementById('r3').innerHTML = 'El telefono no debe contener espacios';
+            }
+        } else {
+            document.getElementById('r3').innerHTML = "Complete este campo";
+        }
+
+        if (telefono2.length > 0) {
+            if (!telefono2.match(/['\s]/)) {
+                if (isNaN(telefono2)) {
+                    document.getElementById('r4').innerHTML = 'El telefono solo debe tener numeros'
+                } else {
+                    if (!regex.test(telefono2)) {
+                        document.getElementById('r4').innerHTML = "No se permiten caracteres especiales";
+                    } else {
+                        if (telefono2.length < 10 || telefono2.length > 10) {
+                            document.getElementById('r4').innerHTML = 'El telefono debe tener 10 digitos'
+                        } else {
+                            document.getElementById('r4').innerHTML = ''
+                        }
+                    }
+                }
+            } else {
+                document.getElementById('r4').innerHTML = 'El telefono no debe contener espacios';
+            }
+        } else {
+            document.getElementById('r4').innerHTML = ''
+        }
+
+        if (emailcliente != "") {
+            if (!emailcliente.match(/['\s]/)) {
+                let expresion = /\w+@\w+\.+[a-z]/;
+                if (!expresion.test(emailcliente)) {
+                    document.getElementById('r5').innerHTML = 'El correo no es valido - example@example.com';
+                } else {
+                    document.getElementById('r5').innerHTML = '';
+                }
+            } else {
+                document.getElementById('r5').innerHTML = 'El correo no debe contener espacios';
+            }
+        } else {
+            document.getElementById('r5').innerHTML = 'Complete este campo';
+        }
+    }
+</script>
+
+</html>

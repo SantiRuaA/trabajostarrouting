@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Star⭐Routing - Paquetes</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        {{> menu}}
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                {{> topbar}}
+                {{!-- End of topbar --}}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Paquetes</h1>
+                        <div>
+                            <a href="crear-paquetes" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+                                <i class="fas fa-box fa-sm text-white-50"></i> Nuevo Paquete</a>
+                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                <i class="fas fa-file-export text-white-50"></i> Generar reporte</a>
+                        </div>
+                    </div>
+                    {{!-- End of Page Heading --}}
+
+                    <!-- Content Row -->
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold" style="color: indigo;">Lista de Paquetes</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Descripcion</th>
+                                            <th>Peso (KG)</th>
+                                            <th>Documento de destinatario</th>
+                                            <th>Nombre de destinatario</th>
+                                            <th>Apellido de destinatario</th>
+                                            <th>Dirección de destinatario</th>
+                                            <th>Teléfono de destinatario</th>
+                                            <th>Correo de destinatario</th>
+                                            <th>Documento de empleado</th>
+                                            <th>Tipo de paquete</th>
+                                            <th>Estado de paquete</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>lorem ipsum dolor sit amet consectetur adipiscing elit</td>
+                                            <td>2</td>
+                                            <td>1023625668</td>
+                                            <td>Milton</td>
+                                            <td>Ramirez</td>
+                                            <td>Av. 1</td>
+                                            <td>300 000 0000</td>
+                                            <td>milton@email.com</td>
+                                            <td>123456789</td>
+                                            <td>Frágil</td>
+                                            <td>En bodega</td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary btn-circle btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>lorem ipsum dolor sit amet consectetur adipiscing elit</td>
+                                            <td>10</td>
+                                            <td>1000291725</td>
+                                            <td>Pablo</td>
+                                            <td>Chavarría</td>
+                                            <td>Av. 2</td>
+                                            <td>300 000 0000</td>
+                                            <td>pablo@email.com</td>
+                                            <td>123456789</td>
+                                            <td>Explosivo</td>
+                                            <td>Entregado</td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary btn-circle btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            {{> footer}}
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    {{> arriba}}
+
+    <!-- Logout Modal-->
+    {{> logout}}
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>

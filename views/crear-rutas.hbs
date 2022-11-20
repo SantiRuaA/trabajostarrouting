@@ -1,0 +1,189 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star⭐Routing - Crear rutas</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        {{> menu}}
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                {{> topbar}}
+                {{!-- End of topbar --}}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Rutas</h1>
+                        <a href="list-rutas" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                            <i class="fas fa-window-close fa-sm text-white-50"></i> Cancelar</a>
+                    </div>
+                    {{!-- End of Page Heading --}}
+
+                    <!-- Content Row -->
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold" style="color: indigo;">Formulario de Rutas</h6>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <form>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="idruta" class="form-label">ID *</label>
+                                            <input type="text" class="form-control" id="idruta" disabled value="1">
+                                        </div>
+                                        <div class="col">
+                                            <label for="nombre" class="form-label">Nombre de la ruta *</label>
+                                            <input type="text" class="form-control" id="nombre">
+                                            <p id="s0" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="distancia" class="form-label">Distancia (KM) *</label>
+                                            <input type="text" class="form-control" id="distancia">
+                                            <p id="i0" style="color: red;"></p>
+                                        </div>
+                                        <div class="col">
+                                            <label for="tiempo" class="form-label">Tiempo (h) *</label>
+                                            <input type="text" class="form-control" id="tiempo">
+                                            <p id="i1" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <label for="estado" class="form-label">Estado de la ruta *</label>
+                                            <select class="form-control" id="estado">
+                                                <option value="0" hidden selected>Seleccione una opción</option>
+                                                <option value="1">En camino</option>
+                                                <option value="2">Finalizada</option>
+                                            </select>
+                                            <p id="s1" style="color: red;"></p>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                        <button type="button" onclick="val()"
+                                            style="background-color: indigo; color: white" class="btn"
+                                            id="btnGuardar">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{!-- End of DataTales Example --}}
+
+                </div>
+            </div>
+            {{!-- End of Main Content --}}
+
+            {{> footer}}
+
+        </div>
+        {{!-- End of Content Wrapper --}}
+
+    </div>
+    {{!-- End of Page Wrapper --}}
+
+    <!-- Scroll to Top Button-->
+    {{> arriba}}
+
+    <!-- Logout Modal-->
+    {{> logout}}
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+    </div>
+
+</body>
+<script>
+    function val() {
+        let nombre = document.getElementById('nombre').value.trim();
+        let distancia = document.getElementById('distancia').value;
+        let tiempo = document.getElementById('tiempo').value;
+        let estado = document.getElementById('estado').value;
+
+        let int = [distancia, tiempo];
+
+        let regexnombre = /^[a-zA-Z0-9\s]*$/;
+        let regexnumero = /^[a-zA-Z0-9.\s]*$/;
+
+        if (nombre == "") {
+            document.getElementById("s0").innerHTML = "Complete este campo";
+        } else {
+            if (!regexnombre.test(nombre)) {
+                document.getElementById("s0").innerHTML = "No se permiten caracteres especiales";
+            } else {
+                document.getElementById("s0").innerHTML = "";
+            }
+        }
+
+        for (i in int) {
+            if (int[i] != "") {
+                if (!int[i].match(/['\s]/)) {
+                    if (isNaN(int[i])) {
+                        document.getElementById('i' + [i]).innerHTML = 'El campo solo debe tener numeros'
+                    } else {
+                        if (!regexnumero.test(int[i])) {
+                            document.getElementById('i' + [i]).innerHTML = "No se permiten caracteres especiales";
+                        } else {
+                            document.getElementById('i' + [i]).innerHTML = ''
+                        }
+                    }
+                } else {
+                    document.getElementById('i' + [i]).innerHTML = 'El campo no debe contener espacios';
+                }
+            } else {
+                document.getElementById('i' + [i]).innerHTML = "Complete este campo";
+            }
+        };
+
+        if (estado == 0) {
+            document.getElementById('s1').innerHTML = 'Seleccione una opción';
+        } else {
+            document.getElementById('s1').innerHTML = '';
+        };
+
+    }
+</script>
+
+</html>
