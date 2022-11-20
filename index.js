@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 app.set('view engine', 'hbs');
+const port = process.env.PORT || 3000;
 
 let hbs = require('hbs');
 
@@ -91,4 +92,6 @@ app.get('/dashboard', function(req, res) {
     res.render('dashboard');
 });
 
-app.listen(3005);
+server = app.listen(port, () => {
+    console.log(`Escuchando peticiones en el puerto ${port}`);
+});
