@@ -173,8 +173,8 @@
         for (i in nombres) {
             if (nombres[i] != "") {
                 if (!nombres[i].match(/['\s]/)) {
-                    if (!regex.test(nombres[i])) {
-                        document.getElementById('nombre' + [i]).innerHTML = "No se permiten caracteres especiales";
+                    if (isNaN(nombres[i]) == false) {
+                        document.getElementById('nombre' + i).innerHTML = 'Este campo no debe ser un número';
                     } else {
                         document.getElementById('nombre' + [i]).innerHTML = '';
                     }

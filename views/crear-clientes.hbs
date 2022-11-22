@@ -194,12 +194,11 @@
         } else {
             document.getElementById('r1').innerHTML = ''
         }
-
         for (i in nombres) {
             if (nombres[i] != "") {
                 if (!nombres[i].match(/['\s]/)) {
-                    if (!regex.test(nombres[i])) {
-                        document.getElementById('nombre' + [i]).innerHTML = "No se permiten caracteres especiales";
+                    if (isNaN(nombres[i]) == false) {
+                        document.getElementById('nombre' + i).innerHTML = 'El nombre no debe contener números';
                     } else {
                         document.getElementById('nombre' + [i]).innerHTML = '';
                     }
