@@ -158,8 +158,8 @@
 
         if (name != "") {
             if (!name.match(/['\s]/)) {
-                if (!regex.test(name)) {
-                    document.getElementById('r0').innerHTML = "No se permiten caracteres especiales";
+                if (isNaN(name) == false) {
+                    document.getElementById('r0').innerHTML = "El nombre no puede ser un número";
                 } else {
                     document.getElementById('r0').innerHTML = ''
                 }
